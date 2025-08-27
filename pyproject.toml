@@ -4,4 +4,12 @@ version = "0.1.0"
 requires-python = ">=3.12"
 dependencies = [
     "spacy>=3.8.7",
+    "zh-core-web-lg",
+    "zh-core-web-md",
+    "zh-core-web-sm",
 ]
+
+[tool.uv.sources]
+zh-core-web-lg = { url = "https://github.com/explosion/spacy-models/releases/download/zh_core_web_lg-3.8.0/zh_core_web_lg-3.8.0-py3-none-any.whl" }
+zh-core-web-md = { url = "https://github.com/explosion/spacy-models/releases/download/zh_core_web_md-3.8.0/zh_core_web_md-3.8.0-py3-none-any.whl" }
+zh-core-web-sm = { url = "https://github.com/explosion/spacy-models/releases/download/zh_core_web_sm-3.8.0/zh_core_web_sm-3.8.0-py3-none-any.whl" }

@@ -4,7 +4,6 @@
 
 ```bash
 uv sync
-./install-chinese-pipelines.sh
 ```
 
 ## Running

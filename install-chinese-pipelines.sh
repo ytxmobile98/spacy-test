@@ -1,14 +1,11 @@
 #!/usr/bin/env bash
 
-# Install Chinese pipelines for spaCy
+# Install Chinese pipelines for spaCy.
 # Reference: https://spacy.io/models/zh
+# We only install the first three pipelines optimized for CPU.
 
-# Download these pipelines for CPU inference (local testing)
-PIPELINES=(
-    zh_core_web_sm
-    zh_core_web_md
-    zh_core_web_lg
-)
-for PIPELINE in "${PIPELINES[@]}"; do
-    python3 -m spacy download "$PIPELINE"
-done
+# Here we use the `uv` command to install these pipelines:
+uv add \
+    'https://github.com/explosion/spacy-models/releases/download/zh_core_web_lg-3.8.0/zh_core_web_lg-3.8.0-py3-none-any.whl' \
+    'https://github.com/explosion/spacy-models/releases/download/zh_core_web_md-3.8.0/zh_core_web_md-3.8.0-py3-none-any.whl' \
+    'https://github.com/explosion/spacy-models/releases/download/zh_core_web_sm-3.8.0/zh_core_web_sm-3.8.0-py3-none-any.whl'
