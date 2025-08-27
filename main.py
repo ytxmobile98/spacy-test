@@ -1,9 +1,6 @@
 import argparse
-import pathlib
+from pathlib import Path
 import spacy
-
-CURDIR = pathlib.Path(__file__).resolve().parent
-doc_path = CURDIR / "docs" / "text-sample.txt"
 
 # Trained pipelines for Chinese:
 # https://spacy.io/models/zh
@@ -22,6 +19,10 @@ def tokenize(pipeline: str, text: str):
 
 def parse_args():
     parser = argparse.ArgumentParser(description="SpaCy Tokenization")
+
+    parser.add_argument(
+        "-i", "--input-file", type=str, required=True,
+        help="Path to the text document to tokenize")
     parser.add_argument(
         "-p", "--pipeline", choices=PIPELINES, required=True,
         help="SpaCy pipeline to use")
@@ -29,7 +30,7 @@ def parse_args():
 
 
 def main(args: argparse.Namespace):
-    text = doc_path.read_text()
+    text = Path(args.input_file).read_text()
     doc = tokenize(args.pipeline, text)
     for token in doc:
         print(token.text, token.idx)
