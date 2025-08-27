@@ -1,6 +1,13 @@
 # spaCy test
 
-Running:
+## Setup
+
+```bash
+uv sync
+./install-chinese-pipelines.sh
+```
+
+## Running
 
 ```bash
 # Tokenization test
