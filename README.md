@@ -1,2 +1,8 @@
-# spacy-test
-spaCy test
+# spaCy test
+
+Running:
+
+```bash
+# Tokenization test
+python3 main.py
+```
