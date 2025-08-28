@@ -11,12 +11,6 @@ PIPELINES = set([
 ])
 
 
-def tokenize(pipeline: str, text: str):
-    nlp = spacy.load(pipeline)
-    doc = nlp(text)
-    return doc
-
-
 def parse_args():
     parser = argparse.ArgumentParser(description="SpaCy Tokenization")
 
@@ -31,7 +25,8 @@ def parse_args():
 
 def main(args: argparse.Namespace):
     text = Path(args.input_file).read_text()
-    doc = tokenize(args.pipeline, text)
+    nlp = spacy.load(args.pipeline)
+    doc = nlp(text)
     for token in doc:
         print(token.text, token.idx)
 
