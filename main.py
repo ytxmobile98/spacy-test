@@ -21,7 +21,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description="SpaCy Tokenization")
 
     parser.add_argument(
-        "-i", "--input-file", type=str, required=True,
+        "-f", "--input-file", type=str, required=True,
         help="Path to the text document to tokenize")
     parser.add_argument(
         "-p", "--pipeline", choices=PIPELINES, required=True,
